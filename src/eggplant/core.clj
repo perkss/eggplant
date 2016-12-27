@@ -1,4 +1,5 @@
-(ns eggplant.core)
+(ns eggplant.core
+  (:require [clojure.test :refer :all]))
 
 ;; TODO Multiple parameters allowed
 (defn given [x]
@@ -10,4 +11,4 @@
 
 ;; TODO need to make this equal work for all types
 (defn then [expected actual]
-  (= expected actual))
+  (is expected actual))
