@@ -6,10 +6,11 @@
   (def provided x))
 
 ;; TODO Multiple parameters allowed
+;; could also bind this to symbol or global var so is not nested call
 (defn when-we [fn x]
   (fn x))
 
 ;; TODO need to make this equal work for all types
 (defn then-we-expect [expected actual]
-  (is expected actual))
+  (= expected actual))
 
