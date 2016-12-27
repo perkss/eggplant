@@ -7,7 +7,7 @@
 
 ;; TODO Multiple parameters allowed
 ;; could also bind this to symbol or global var so is not nested call
-(defn when-we [fn x]
+(defn when-we-process [fn x]
   (fn x))
 
 ;; TODO need to make this equal work for all types
