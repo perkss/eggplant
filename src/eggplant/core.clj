@@ -2,8 +2,8 @@
   (:require [clojure.test :refer :all]))
 
 ;; TODO Multiple parameters allowed
-(defn provided [x]
-  (def provided x))
+(defn given [x]
+  (def given x))
 
 ;; TODO Multiple parameters allowed
 ;; could also bind this to symbol or global var so is not nested call

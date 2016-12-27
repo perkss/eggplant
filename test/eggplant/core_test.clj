@@ -4,7 +4,7 @@
 
 (deftest provided-test
   (testing "Check the when defines variable"
-    (is 2 (provided 2))))
+    (is 2 (given 2))))
 
 (deftest when-we-test
   (testing "Check the when calls the function"
@@ -20,8 +20,8 @@
 
 (deftest example-specification-true
   (testing "A full length example specification which is true"
-    (is (true? (then-we-expect 4 (when-we-process #(+ %1 2) provided))))))
+    (is (true? (then-we-expect 4 (when-we-process #(+ %1 2) given))))))
 
 (deftest example-specification-false
   (testing "A full length example specification which is true"
-    (is (false? (then-we-expect 2 (when-we-process #(+ %1 2) provided))))))
+    (is (false? (then-we-expect 2 (when-we-process #(+ %1 2) given))))))
