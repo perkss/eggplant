@@ -40,7 +40,7 @@ compile "eggplant:eggplant:0.1.0-SNAPSHOT"
 
 Always looking for contribution so please reach out and take some of the issues or create new ones. Beginner friendly.
   
-# Examples
+## Examples
 
 ``` clojure
 
