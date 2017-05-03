@@ -15,6 +15,27 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
 3. Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications.
  
+## Examples
+
+``` clojure
+
+(deftest example-specification-true
+  (testing "A full length example specification which is true 4 * 2 = 8"
+    (then-we-expect 8 (when-we-process * 2 (given 4)))))
+
+(deftest example-specification-false
+  (testing "A full length example specification which is false 4 * 2 = 6 ! False"
+    (then-we-do-not-expect 6 (when-we-process * 2 (given 4)))))
+
+(deftest example-specification-with-strings
+  (testing "String upper case specification"
+    (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))
+    
+```
+## Contribute
+
+Always looking for contribution so please reach out and take some of the issues or create new ones. Beginner friendly.
+ 
 ## Dependency
 
 Available on [Clojars](https://clojars.org/eggplant).
@@ -36,28 +57,6 @@ Available on [Clojars](https://clojars.org/eggplant).
     </dependency>
 ```
  
-## Contribute
-
-Always looking for contribution so please reach out and take some of the issues or create new ones. Beginner friendly.
-  
-## Examples
-
-``` clojure
-
-(deftest example-specification-true
-  (testing "A full length example specification which is true 4 * 2 = 8"
-    (then-we-expect 8 (when-we-process * 2 (given 4)))))
-
-(deftest example-specification-false
-  (testing "A full length example specification which is false 4 * 2 = 6 ! False"
-    (then-we-do-not-expect 6 (when-we-process * 2 (given 4)))))
-
-(deftest example-specification-with-strings
-  (testing "String upper case specification"
-    (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))
-    
-```
-
 ## Thanks
 
 Thanks to some key players in the Clojure space that makes this fun all possible: 
