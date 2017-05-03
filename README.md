@@ -13,8 +13,31 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 ## Features (Under Development): 
 1. Simplicity - a key feature we do not want to over complicate things.
 2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
-3. Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications. 
+3. Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications.
+ 
+## Dependency
 
+Available on [Clojars](https://clojars.org/eggplant).
+
+#### Leiningen/Boot
+``` 
+    [eggplant "0.1.0-SNAPSHOT"]
+    
+```
+#### Gradle  
+```
+compile "eggplant:eggplant:0.1.0-SNAPSHOT"
+```
+
+#### Maven  
+```
+<dependency>
+      <groupId>eggplant</groupId>
+      <artifactId>eggplant</artifactId>
+      <version>0.1.0-SNAPSHOT</version>
+    </dependency>
+```
+ 
 ## Contribute
 
 Always looking for contribution so please reach out and take some of the issues or create new ones. Beginner friendly.
