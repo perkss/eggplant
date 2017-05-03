@@ -7,7 +7,7 @@ Eggplant is a very young behaviour driven development (BDD) library for Clojure.
 
 Our Motto: **_"Simplicity is key"_**
 
-Eggplant just works, it has simple to read phrases and a BDD style test can be written in under 30 seconds, we do not try and over complicate things. 
+Eggplant just works, it has simple to read phrases and a BDD style test can be written in under 30 seconds, we do not try and over complicate things. Except reading right to left!! 
 
 
 ## Features (Under Development): 
