@@ -12,4 +12,7 @@
 (defn then-we-expect [expected actual]
   (= expected actual))
 
+;; TODO define a defSpecification fn that refers to defTest
+
+
 
