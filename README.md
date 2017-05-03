@@ -12,7 +12,7 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 
 ## Features (Under Development): 
 1. Simplicity - a key feature we do not want to over complicate things.
-2. Three keywords: Given, When-We-Process, Then-We-Expect form the BDD style of testing. 
+2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
 3. Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications. 
 
 ## Contribute
@@ -46,20 +46,19 @@ Always looking for contribution so please reach out and take some of the issues 
 
 (deftest then-we-expect-test-fail
   (testing "Test the then will fail on negatives"
-    (is (false? (then-we-expect 2 3)))))
+    (is (true? (then-we-do-not-expect 2 3)))))
 
 (deftest example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"
-    (is (true? (then-we-expect 8 (when-we-process * 2 (given 4)))))))
+    (then-we-expect 8 (when-we-process * 2 (given 4)))))
 
 (deftest example-specification-false
   (testing "A full length example specification which is false 4 * 2 = 6 ! False"
-    (is (false? (then-we-expect 6 (when-we-process * 2 (given 4)))))))
+    (then-we-do-not-expect 6 (when-we-process * 2 (given 4)))))
 
 (deftest example-specification-with-strings
   (testing "String upper case specification"
-    (is (true? (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))))
-
+    (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))
     
 ```
 

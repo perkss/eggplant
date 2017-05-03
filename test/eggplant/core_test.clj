@@ -21,16 +21,16 @@
 
 (deftest then-we-expect-test-fail
   (testing "Test the then will fail on negatives"
-    (is (false? (then-we-expect 2 3)))))
+    (is (true? (then-we-do-not-expect 2 3)))))
 
 (deftest example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"
-    (is (true? (then-we-expect 8 (when-we-process * 2 (given 4)))))))
+    (then-we-expect 8 (when-we-process * 2 (given 4)))))
 
 (deftest example-specification-false
   (testing "A full length example specification which is false 4 * 2 = 6 ! False"
-    (is (false? (then-we-expect 6 (when-we-process * 2 (given 4)))))))
+    (then-we-do-not-expect 6 (when-we-process * 2 (given 4)))))
 
 (deftest example-specification-with-strings
   (testing "String upper case specification"
-    (is (true? (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))))
+    (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))

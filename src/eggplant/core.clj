@@ -10,7 +10,10 @@
 
 ;; TODO need to make this equal work for all types
 (defn then-we-expect [expected actual]
-  (= expected actual))
+  (is (true? (= expected actual))))
+
+(defn then-we-do-not-expect [expected actual]
+  (is (false? (= expected actual))))
 
 ;; TODO define a defSpecification fn that refers to defTest
 
