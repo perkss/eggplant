@@ -21,14 +21,12 @@ Available on [Clojars](https://clojars.org/eggplant).
 
 #### Leiningen/Boot
 ``` 
-    [eggplant "0.1.0-SNAPSHOT"]
-    
+    [eggplant "0.1.0-SNAPSHOT"] 
 ```
 #### Gradle  
 ```
 compile "eggplant:eggplant:0.1.0-SNAPSHOT"
 ```
-
 #### Maven  
 ```
     <dependency>
