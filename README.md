@@ -44,4 +44,5 @@ Thanks to some key players in the Clojure space that makes this fun all possible
 - Rich Hickey for [Clojure](http://clojure.org).
 - Colin Fleming for [Cursive](https://cursiveclojure.com).
 - Phil Hagelberg for [Leiningen](http://leiningen.org).
+- Stuart Sierra, Chas Emerick, Allen Rohner, and Stuart Halloway for [Clojure Test](https://clojure.github.io/clojure/clojure.test-api.html).
 
