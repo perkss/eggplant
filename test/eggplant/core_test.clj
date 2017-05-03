@@ -6,7 +6,7 @@
   (testing "Check the when defines variable"
     (is 2 (given 2))))
 
-(deftest when-we-test
+(deftest when-we-process-test
   (testing "Check the when calls the function"
     (is 4 (when-we-process #(+ %1 2) 2))))
 
