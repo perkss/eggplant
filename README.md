@@ -31,7 +31,7 @@ compile "eggplant:eggplant:0.1.0-SNAPSHOT"
 
 #### Maven  
 ```
-<dependency>
+    <dependency>
       <groupId>eggplant</groupId>
       <artifactId>eggplant</artifactId>
       <version>0.1.0-SNAPSHOT</version>
