@@ -25,7 +25,7 @@ Available on [Clojars](https://clojars.org/eggplant).
 ```
 #### Gradle  
 ```
-compile "eggplant:eggplant:0.1.0-SNAPSHOT"
+    compile "eggplant:eggplant:0.1.0-SNAPSHOT"
 ```
 #### Maven  
 ```
