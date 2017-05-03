@@ -38,7 +38,7 @@ Always looking for contribution so please reach out and take some of the issues 
  
 ## Dependency
 
-Available on [Clojars](https://clojars.org/eggplant).
+Available: [![Clojars Project](https://img.shields.io/clojars/v/eggplant.svg)](https://clojars.org/eggplant)
 
 #### Leiningen/Boot
 ``` 
