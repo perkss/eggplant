@@ -23,31 +23,6 @@ Always looking for contribution so please reach out and take some of the issues 
 
 ``` clojure
 
-(ns eggplant.core-test
-  (:require [clojure.test :refer :all]
-            [eggplant.core :refer :all]
-            [clojure.string :as str]))
-
-(deftest give-test
-  (testing "Check the when defines variable"
-    (is (= 2 (given 2)))))
-
-(deftest when-we-process-test
-  (testing "Check the when calls the function"
-    (is (= 4 (when-we-process + 2 2)))))
-
-(deftest then-we-expect-test
-  (testing "Test the then works as expected"
-    (is (true? (then-we-expect 2 2)))))
-
-(deftest give-when-we-process-test
-  (testing "Check the when calls the function"
-    (is (= 4 (when-we-process + 2 (given 2))))))
-
-(deftest then-we-expect-test-fail
-  (testing "Test the then will fail on negatives"
-    (is (true? (then-we-do-not-expect 2 3)))))
-
 (deftest example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"
     (then-we-expect 8 (when-we-process * 2 (given 4)))))
