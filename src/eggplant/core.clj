@@ -3,14 +3,13 @@
 
 ;; TODO Multiple parameters allowed
 (defn given [x]
-  (def given x))
+  (var-get (def var x)))
 
-;; TODO Multiple parameters allowed
-;; could also bind this to symbol or global var so is not nested call
-(defn when-we-process [fn x]
-  (fn x))
+(defn when-we-process [testFn & data]
+  (apply testFn data))
 
 ;; TODO need to make this equal work for all types
 (defn then-we-expect [expected actual]
   (= expected actual))
+
 
