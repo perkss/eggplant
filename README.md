@@ -12,7 +12,7 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 
 ## Features (Under Development): 
 1. Simplicity - a key feature we do not want to over complicate things.
-2. Given, When-We, Then-We-Expect style of testing. 
+2. Three keywords: Given, When-We-Process, Then-We-Expect form the BDD style of testing. 
 3. Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications. 
 
 ## Contribute
