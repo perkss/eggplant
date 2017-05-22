@@ -22,7 +22,7 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 ;; Preferable way of writing user readable
 ;; TODO define defspec
 (deftest example-specification-with-thread-macro
-  (testing "Test with Thread Macro"
+  (testing "Test 2 * 2 = 4 written Thread Macro style"
     (as-> 2 test-data 
         (given test-data)
           (then-we-expect 4 (when-we-process * 2 test-data)))))
