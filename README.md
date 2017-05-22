@@ -31,6 +31,14 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
   (testing "String upper case specification"
     (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))
     
+;; Preferable way of writing user readable
+;; TODO define defspec
+(deftest example-specification-with-thread-macro
+  (testing "Test with Thread Macro"
+    (as-> 2 test-data 
+        (given test-data)
+          (then-we-expect 4 (when-we-process * 2 test-data)))))
+    
 ```
 ## Contribute
 

@@ -34,3 +34,9 @@
 (deftest example-specification-with-strings
   (testing "String upper case specification"
     (then-we-expect "TOM" (when-we-process str/upper-case (given "tom")))))
+
+(deftest example-specification-with-thread-macro
+  (testing "Test with Thread Macro"
+    (as-> 2 test-data
+          (given test-data)
+          (then-we-expect 4 (when-we-process * 2 test-data)))))
