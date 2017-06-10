@@ -10,10 +10,10 @@ Our Motto: **_"Simplicity is key"_**
 Eggplant just works, it has simple to read phrases and a BDD style test can be written in under 30 seconds, we do not try and over complicate things. Except reading right to left!! (See the examples and you will understand) 
 
 
-## Features (Under Development): 
+## Features: 
 1. Simplicity - a key feature we do not want to over complicate things.
 2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
-3. Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications.
+3. (Under development) Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications.
  
 ## Examples
 
