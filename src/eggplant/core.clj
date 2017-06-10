@@ -2,8 +2,12 @@
   (:require [clojure.test :refer :all]))
 
 ;; TODO Multiple parameters allowed
-(defmacro given [x]
-  (var-get (def var x)))
+;(defmacro given [x]
+;  (var-get (def var x)))
+
+(defmacro given
+  ^{:safe true}
+  [& args] `(as-> ~@args))
 
 (defn when-we-process [test-fn & data]
   (apply test-fn data))
