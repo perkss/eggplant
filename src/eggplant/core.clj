@@ -15,12 +15,11 @@
 (defn then-we-do-not-expect [expected actual]
   (is (false? (= expected actual))))
 
-;; TODO define a defspecification fn that refers to deftest or testing
-(defmacro defspecification
-  [specName & testBody]
-    `(def ~(vary-meta specName assoc :test `(fn [] ~@testBody))
-       (fn [] (test-var (var ~specName)))))
+(defmacro defspec
+  ^{:safe true}
+  [& args] `(deftest ~@args))
 
+;; TODO define a defSpecification fn that refers to defTest
 
 
 
