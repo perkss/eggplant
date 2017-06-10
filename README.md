@@ -20,11 +20,10 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 ``` clojure
 
 ;; Preferable way of writing user readable
-(defspec example-specification-with-thread-macro
-  (testing "Test 2 * 2 = 4 written Thread Macro style"
-    (as-> 2 test-data 
-        (given test-data)
-          (then-we-expect 4 (when-we-process * 2 test-data)))))
+(defspec example-specification-multiplication
+  (testing "Test with Thread Macro given"
+    (given 2 test-data-name
+          (then-we-expect 4 (when-we-process * 2 test-data-name)))))
 
 (defspec example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"

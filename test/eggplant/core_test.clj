@@ -35,7 +35,7 @@
   (testing "String upper case specification"
     (then-we-expect "TOM" (when-we-process str/upper-case (given "tom" test-data-name)))))
 
-(defspec example-specification-with-thread-macro
-  (testing "Test with Thread Macro"
+(defspec example-specification-multiplication
+  (testing "Test with Thread Macro given"
     (given 2 test-data-name
           (then-we-expect 4 (when-we-process * 2 test-data-name)))))
