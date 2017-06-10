@@ -25,12 +25,12 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
            (given 2 test-data
                   (then-we-expect 4 (when-we-process * 2 test-data)))))
 
-(deftest example-specification-true
+(defspec example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"
     (given 4 test-data
            (then-we-expect 8 (when-we-process * 2 test-data)))))
 
-(deftest example-specification-false
+(defspec example-specification-false
   (testing "A full length example specification which is false 4 * 2 = 6 ! False"
     (given 4 test-data
            (then-we-do-not-expect 6 (when-we-process * 2 test-data)))))
