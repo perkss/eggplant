@@ -3,7 +3,7 @@
 
 ## Details
 
-Eggplant is a very young behaviour driven development (BDD) library for Clojure. Eggplant will focus on data driven testing to enable a data driven language such as Clojure to be adequately tested. It will use specifications written in a very simple user friendly language to enforce executable tests that can be automated and continue living documentation of these tests. 
+Eggplant is a behaviour driven development (BDD) library for Clojure. Eggplant's focus is on data driven testing to enable a data driven language such as Clojure to be adequately tested. It will use specifications written in a very simple user friendly language to enforce executable tests that can be automated along with providing living documentation. 
 
 Our Motto: **_"Simplicity is key"_**
 
@@ -11,9 +11,9 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 
 
 ## Features: 
-1. Simplicity - a key feature we do not want to over complicate things.
+1. Simplicity: a key feature we do not want to over complicate things.
 2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
-3. (Under development) Data driven testing using data tables. Import of data tables from CSV for non technical users to write specifications.
+3. (Under development) Data driven: Data driven testing using data tables. 
  
 ## Examples
 
