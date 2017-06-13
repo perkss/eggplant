@@ -21,7 +21,7 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 
 ;; Preferable way of writing user readable
 (defspec example-specification-multiplication
-         (testing "Test with Thread Macro given"
+         (testing "Example specification showing multiplication given 2 when we process 2 * 2 then we expect 4"
            (given 2 test-data
                   (then-we-expect 4 (when-we-process * 2 test-data)))))
 
