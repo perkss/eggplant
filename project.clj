@@ -4,5 +4,4 @@
   :license {:name "Apache License"
             :url  "https://github.com/egg-plant/eggplant/blob/master/LICENSE"}
   :dependencies [[org.clojure/clojure "1.8.0"]]
-  :sign-release false
-  :signing {:gpg-key "16B956155EC0B1C08F088DDABB85C541D049870F"})
+)
