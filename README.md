@@ -51,18 +51,18 @@ Available: [![Clojars Project](https://img.shields.io/clojars/v/eggplant.svg)](h
 
 #### Leiningen/Boot
 ``` 
-    [eggplant "0.1.0-SNAPSHOT"] 
+    [eggplant "0.1.0"] 
 ```
 #### Gradle  
 ```
-    compile "eggplant:eggplant:0.1.0-SNAPSHOT"
+    compile "eggplant:eggplant:0.1.0"
 ```
 #### Maven  
 ```
     <dependency>
       <groupId>eggplant</groupId>
       <artifactId>eggplant</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.0</version>
     </dependency>
 ```
  
