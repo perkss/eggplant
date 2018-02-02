@@ -43,3 +43,19 @@
          (testing "Test with Thread Macro given"
            (given 2 test-data
                   (then-we-expect 4 (when-we-process * 2 test-data)))))
+
+(defspec example-table-test
+  (testing "Example table test"
+ (where (expect + = )
+          (->Row + [3 3] 6)
+          (->Row + [ 3 2] 3)
+                             
+          )))
+
+;; need to get a for loop working here with the is so it gets picked up by the spec;;; last part great progress
+
+(defspec spec (testing "test" (is (true? true))))
+
+
+
+
