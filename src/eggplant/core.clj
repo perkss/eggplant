@@ -32,44 +32,24 @@
   [& args]
   `(deftest ~@args))
 
-;;(defn execute-row [func data] (apply func data))
+(defrecord Row [args expected])
 
+(defn test-data-row [args expected] (->Row args expected))
 
-(defrecord Row [function-under-test args expected])
+(defn execute-row [func data assertion]
+  (assertion (apply func (:args data)) (:expected data)))
 
-(def row1 [1 2 3])
-
-(def row2 [3 4 5])
-
-(def row3 (Row. + row1 6))
-
-(def row4 (->Row + row1 6))
-
-(defn execute-row [func data assertion] (assertion (apply func (:args data)) (:expected data)))
-
-(execute-row + row3 =)
-
-(for [test-row [row4 row3]] (execute-row + test-row =))
-
-
-;; build a expect data type from (expect test-func = expected)
 (defrecord Expect [test-func assertion])
 
-(defn expect [test-func assertion] (->Expect test-func assertion))
+(defn expect [test-func assertion]
+  (->Expect test-func assertion))
 
-(expect + =)
+(defn check-row [expect test-row]
+  (is (true?
+       (execute-row (:test-func expect) test-row (:assertion expect)))))
 
-;; Do the macro inline call so can have (expect -> where)
-;;(defn where [expect & args] (for [test-row args] (is (true?  (execute-row (:test-func expect) test-row (:assertion expect))))))
-
-(defn where [expect test-row] (is (true?  (execute-row (:test-func expect) test-row (:assertion expect)))))
-
-(defn make-seq [data] (if (seq? data) data (list data)))
-
-
-(defn test-where [expected & args] (every? true?  (for [test-row args] (where expected test-row))))
-
-
-;; need to get this working as first step be better long term to
-;; could add a name for each row or return the row number by knowing position in seququence that failed. 
+(defn where [expected & args]
+  (every? true?
+          (for [test-row args]
+            (check-row expected test-row))))
 
