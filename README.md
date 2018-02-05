@@ -13,7 +13,7 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 ## Features: 
 1. Simplicity: a key feature we do not want to over complicate things.
 2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
-3. (Under development) Data driven: Data driven testing using data tables. 
+3. Data driven: Data driven testing using data tables with the where clause. 
  
 ## Examples
 
@@ -39,7 +39,15 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
          (testing "String upper case specification"
            (given "tom" test-data
                   (then-we-expect "TOM" (when-we-process str/upper-case test-data)))))
-    
+
+(defspec example-table-test
+  (testing "Example table testing + with assertion of ="
+    (-> (expect (function-under-test +) (assertion =))
+        (where
+         (test-data-row [3 3] 6)
+         (test-data-row [4 4] 8)
+         (test-data-row [2 3] 5)))))
+
 ```
 ## Contribute
 
@@ -51,18 +59,18 @@ Available: [![Clojars Project](https://img.shields.io/clojars/v/eggplant.svg)](h
 
 #### Leiningen/Boot
 ``` 
-    [eggplant "0.1.0"] 
+    [eggplant "0.1.1"] 
 ```
 #### Gradle  
 ```
-    compile "eggplant:eggplant:0.1.0"
+    compile "eggplant:eggplant:0.1.1"
 ```
 #### Maven  
 ```
     <dependency>
       <groupId>eggplant</groupId>
       <artifactId>eggplant</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
     </dependency>
 ```
  

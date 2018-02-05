@@ -1,11 +1,18 @@
 (ns eggplant.core-test
   (:require [clojure.test :refer :all]
-            [eggplant.core :refer :all]
-            [clojure.string :as str]))
+            [eggplant.core :refer :all]))
 
-(deftest give-test
+(deftest given-test
   (testing "Check the when defines variable"
     (is (= 2 (given 2 test-data)))))
+
+(deftest function-under-test-method-test
+  (testing "Check the value is the function under test")
+    (is (= + (function-under-test +))))
+
+(deftest assertion-test
+  (testing "Check the value assertion function is returned")
+   (is (= = (assertion =))))
 
 (deftest when-we-process-test
   (testing "Check the when calls the function"
@@ -15,31 +22,16 @@
   (testing "Test the then works as expected"
     (is (true? (then-we-expect 2 2)))))
 
+(deftest then-we-do-not-expect-test
+  (testing "Test the then we do not expect works as expected"
+    (is (true? (then-we-do-not-expect 2 3)))))
+
 (deftest give-when-we-process-test
   (testing "Check the when calls the function"
     (given 2 test-data
            (is (= 4 (when-we-process + 2 test-data))))))
 
-(deftest then-we-expect-test-fail
+(deftest then-we-expect-fail-test
   (testing "Test the then will fail on negatives"
     (is (true? (then-we-do-not-expect 2 3)))))
 
-(defspec example-specification-true
-         (testing "A full length example specification which is true 4 * 2 = 8"
-           (given 4 test-data
-                  (then-we-expect 8 (when-we-process * 2 test-data)))))
-
-(defspec example-specification-false
-         (testing "A full length example specification which is false 4 * 2 = 6 ! False"
-           (given 4 test-data
-                  (then-we-do-not-expect 6 (when-we-process * 2 test-data)))))
-
-(defspec example-specification-with-strings
-         (testing "String upper case specification"
-           (given "tom" test-data
-                  (then-we-expect "TOM" (when-we-process str/upper-case test-data)))))
-
-(defspec example-specification-multiplication
-         (testing "Test with Thread Macro given"
-           (given 2 test-data
-                  (then-we-expect 4 (when-we-process * 2 test-data)))))
