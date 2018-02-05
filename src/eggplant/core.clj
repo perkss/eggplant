@@ -36,7 +36,7 @@
 
 (defn test-data-row [args expected] (->Row args expected))
 
-(defn execute-row [func data assertion]
+(defn- execute-row [func data assertion]
   (assertion (apply func (:args data)) (:expected data)))
 
 (defrecord Expect [test-func assertion])
@@ -44,7 +44,7 @@
 (defn expect [test-func assertion]
   (->Expect test-func assertion))
 
-(defn check-row [expect test-row]
+(defn- check-row [expect test-row]
   (is (true?
        (execute-row (:test-func expect) test-row (:assertion expect)))))
 
