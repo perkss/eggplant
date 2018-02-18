@@ -18,6 +18,7 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 ## Examples
 
 ``` clojure
+[eggplant.core :refer :all]
 
 (defspec example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"
@@ -39,13 +40,22 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
     (given 2 test-data
            (then-we-expect 4 (when-we-process * 2 test-data)))))
 
-(defspec example-table-test
+(defspec example-table-spec
   (testing "Example table testing + with assertion of ="
     (-> (expect (function-under-test +) (assertion =))
         (where
          (test-data-row [3 3] 6)
          (test-data-row [4 4] 8)
          (test-data-row [2 3] 5)))))
+         
+(defspec build-account-spec
+  (testing "Example table testing formulation of a test-account record"
+    (-> (expect (function-under-test get) (assertion =))
+        (where
+         (test-data-row [test-account :balance] 0)
+         (test-data-row [test-account :first-name] "egg")
+         (test-data-row [test-account :last-name] "plant")))))
+
 
 ```
 ## Contribute
