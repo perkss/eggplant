@@ -2,17 +2,14 @@
   (:require [clojure.test :refer :all]))
 
 (defmacro given
-  ^{:safe true}
   [& args]
   `(as-> ~@args))
 
 (defmacro function-under-test
-  ^{:safe true}
   [function-under-test]
   function-under-test)
 
 (defmacro assertion
-  ^{:safe true}
   [assertion] assertion)
 
 (defn when-we-process [test-fn & data]
@@ -28,7 +25,6 @@
        (= expected actual))))
 
 (defmacro defspec
-  ^{:safe true}
   [& args]
   `(deftest ~@args))
 
