@@ -8,11 +8,11 @@
 
 (deftest function-under-test-method-test
   (testing "Check the value is the function under test")
-    (is (= + (function-under-test +))))
+  (is (= + (function-under-test +))))
 
 (deftest assertion-test
   (testing "Check the value assertion function is returned")
-   (is (= = (assertion =))))
+  (is (= = (assertion =))))
 
 (deftest when-we-process-test
   (testing "Check the when calls the function"
