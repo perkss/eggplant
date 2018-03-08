@@ -47,15 +47,6 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
          (test-data-row [3 3] 6)
          (test-data-row [4 4] 8)
          (test-data-row [2 3] 5)))))
-         
-(defspec build-account-spec
-  (testing "Example table testing formulation of a test-account record"
-    (-> (expect (function-under-test get) (assertion =))
-        (where
-         (test-data-row [test-account :balance] 0)
-         (test-data-row [test-account :first-name] "egg")
-         (test-data-row [test-account :last-name] "plant")))))
-
 
 ```
 ## Contribute
