@@ -1,9 +1,8 @@
 (ns eggplant.core
   (:require [clojure.test :refer :all]))
 
-(defmacro given
-  [& args]
-  `(as-> ~@args))
+(defmacro given [data & args]
+  `(as-> ~@(cons data (rest args))))
 
 (defmacro function-under-test
   [function-under-test]
