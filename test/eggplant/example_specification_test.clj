@@ -27,6 +27,19 @@
            (then-we-expect 4
                            (when-we-process * 2 test-data)))))
 
+(defspec example-specification-vector-as-data
+         (testing "Test with Thread Macro given"
+           (given [1 2 3 4] as test-data
+                  (then-we-expect 4
+                                  (when-we-process count test-data)))))
+
+(defspec example-specification-multi-args
+         (testing "Test with Thread Macro given and multi vars"
+           (given [2 as test-data
+                   4 as multiplier]
+                  (then-we-expect 8
+                                  (when-we-process * multiplier test-data)))))
+
 (defspec example-table-test
   (testing "Example table testing + with assertion of ="
     (-> (expect (function-under-test +) (assertion =))

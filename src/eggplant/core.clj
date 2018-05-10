@@ -1,8 +1,16 @@
 (ns eggplant.core
   (:require [clojure.test :refer :all]))
 
-(defmacro given [data & args]
-  `(as-> ~@(cons data (rest args))))
+(defn multi-args? [data]
+  (and
+    (vector? data)
+    (= (get (frequencies data) 'as) (/ (count data) 3))))
+
+(defmacro given
+  ([data & args]
+   (if (multi-args? data)
+     `(let [~@(mapcat #(list (nth % 2) (first %)) (partition 3 data))] ~@args)
+     `(as-> ~@(cons data (rest args))))))
 
 (defmacro function-under-test
   [function-under-test]
