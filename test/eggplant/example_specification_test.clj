@@ -5,27 +5,40 @@
 
 (defspec example-specification-true
   (testing "A full length example specification which is true 4 * 2 = 8"
-    (given 4 test-data
+    (given 4 as test-data
            (then-we-expect 8
                            (when-we-process * 2 test-data)))))
 
 (defspec example-specification-false
   (testing "A full length example specification which is false 4 * 2 = 6 ! False"
-    (given 4 test-data
+    (given 4 as test-data
            (then-we-do-not-expect 6
                                   (when-we-process * 2 test-data)))))
 
 (defspec example-specification-with-strings
   (testing "String upper case specification"
-    (given "tom" test-data
+    (given "tom" as test-data
            (then-we-expect "TOM"
                            (when-we-process str/upper-case test-data)))))
 
 (defspec example-specification-multiplication
   (testing "Test with Thread Macro given"
-    (given 2 test-data
+    (given 2 as test-data
            (then-we-expect 4
                            (when-we-process * 2 test-data)))))
+
+(defspec example-specification-vector-as-data
+  (testing "Test with Thread Macro given"
+    (given [1 2 3 4] as test-data
+           (then-we-expect 4
+                           (when-we-process count test-data)))))
+
+(defspec example-specification-multi-args
+  (testing "Test with Thread Macro given and multi vars"
+    (given [2 as test-data
+            4 as multiplier]
+           (then-we-expect 8
+                           (when-we-process * multiplier test-data)))))
 
 (defspec example-table-test
   (testing "Example table testing + with assertion of ="

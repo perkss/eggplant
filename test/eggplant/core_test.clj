@@ -4,7 +4,7 @@
 
 (deftest given-test
   (testing "Check the when defines variable"
-    (is (= 2 (given 2 test-data)))))
+    (is (= 2 (given 2 as test-data)))))
 
 (deftest function-under-test-method-test
   (testing "Check the value is the function under test")
@@ -28,7 +28,7 @@
 
 (deftest give-when-we-process-test
   (testing "Check the when calls the function"
-    (given 2 test-data
+    (given 2 as test-data
            (is (= 4 (when-we-process + 2 test-data))))))
 
 (deftest then-we-expect-fail-test
