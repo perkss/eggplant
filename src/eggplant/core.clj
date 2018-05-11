@@ -1,7 +1,7 @@
 (ns eggplant.core
   (:require [clojure.test :refer :all]))
 
-(defn multi-args? [data]
+(defn- multi-args? [data]
   (and
     (vector? data)
     (= (get (frequencies data) 'as) (/ (count data) 3))))
