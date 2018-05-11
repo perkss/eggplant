@@ -75,6 +75,12 @@ Available: [![Clojars Project](https://img.shields.io/clojars/v/eggplant.svg)](h
       <version>0.1.1</version>
     </dependency>
 ```
+## Contributors
+
+Many thanks to those who have contributed to Eggplant:
+
+- Stuart Perks @perkss
+- Dan Nicolici @dannicolici
  
 ## Thanks
 
