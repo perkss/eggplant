@@ -6,14 +6,14 @@
   (specification
    {:given "a input of :a and :b"
     :when  "we #* :c"
-    :then  "we expect :result"
+    :then  "we can expect a :result"
     :data {:a 3 :b 4 :result 12}}))
 
 (defspec change-a-string-to-uppercase
   (specification
    {:given "a input of :a"
-    :when  "we #clojure.string/upper-case"
-    :then  "we expect :result"
+    :when  "we convert it to #clojure.string/upper-case"
+    :then  "we can expect a :result"
     :data {:a "hello" :result "HELLO"}}))
 
 (defspec finding-the-max-of-two-numbers

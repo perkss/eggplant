@@ -11,12 +11,14 @@
   [input]
   (let [[ns fn-name] (clojure.string/split
                       (clojure.string/trim
-                       (first (re-seq #"#.*?\s"
-                                      (str input " ")))) #"/")]
+                       (first
+                        (re-seq #"#.*?\s"
+                                (str input " ")))) #"/")]
     (if (nil? fn-name)
-      ["clojure.core" (clojure.string/replace
-                       ns
-                       #"#" "")]
+      ["clojure.core"
+       (clojure.string/replace
+        ns
+        #"#" "")]
       [(clojure.string/replace
         ns
         #"#" "") fn-name])))
@@ -63,4 +65,3 @@
 (defmacro defspec
   [& specs]
   `(deftest ~@specs))
-
