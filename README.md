@@ -16,7 +16,14 @@ Runs the same as `clojure.test` so will work in any IDE and with any driver such
 ## Features: 
 1. Simplicity: a key feature we do not want to over complicate things.
 2. Keywords: given, when, then, or expect, where form the BDD style of testing.
-3. Data driven: Data driven testing using data tables with the where clause. 
+3. Data driven: Data driven testing using data tables with the where clause.
+
+## How to use:
+Please work from the examples below. Basically two forms the give or the expect.
+Then provide the text and the keyword names making sure to use : before for example :a.
+On the providing of the function under test name please provide namespace unless in core and prefix it with #
+to symbolize a function call standard for Clojure anonymous functions. Then provide the map of data in the :data
+or :where map as appropriate and make sure all keywords provided in the BDD text are mapped appropriately.
  
 ## Examples
 
