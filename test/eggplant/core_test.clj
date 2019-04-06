@@ -1,37 +1,18 @@
 (ns eggplant.core-test
-  (:require [clojure.test :refer :all]
-            [eggplant.core :refer :all]))
+  (:require [clojure.test :refer :all])
+  (:require [eggplant.core :refer [get-fn-name-from-str]]))
 
-(deftest given-test
-  (testing "Check the when defines variable"
-    (is (= 2 (given 2 as test-data)))))
+(deftest get-fn-from-str-max-test
+  (testing "Get ns and fn name word from a str"
+    (is (= ["clojure.core" "max"]
+           (get-fn-name-from-str "the #max of :a and :b")))))
 
-(deftest function-under-test-method-test
-  (testing "Check the value is the function under test")
-  (is (= + (function-under-test +))))
+(deftest get-fn-from-str-multiply-test
+  (testing "Get ns and fn name from a str"
+    (is (= ["clojure.core" "*"]
+           (get-fn-name-from-str "the #* of :a and :b")))))
 
-(deftest assertion-test
-  (testing "Check the value assertion function is returned")
-  (is (= = (assertion =))))
-
-(deftest when-we-process-test
-  (testing "Check the when calls the function"
-    (is (= 4 (when-we-process + 2 2)))))
-
-(deftest then-we-expect-test
-  (testing "Test the then works as expected"
-    (is (true? (then-we-expect 2 2)))))
-
-(deftest then-we-do-not-expect-test
-  (testing "Test the then we do not expect works as expected"
-    (is (true? (then-we-do-not-expect 2 3)))))
-
-(deftest give-when-we-process-test
-  (testing "Check the when calls the function"
-    (given 2 as test-data
-           (is (= 4 (when-we-process + 2 test-data))))))
-
-(deftest then-we-expect-fail-test
-  (testing "Test the then will fail on negatives"
-    (is (true? (then-we-do-not-expect 2 3)))))
-
+(deftest get-fn-uppercase-test
+  (testing "Get the namespace and fn name for string uppercase"
+    (is (= ["clojure.string" "uppercase"]
+           (get-fn-name-from-str "the #clojure.string/uppercase of :a and :b")))))

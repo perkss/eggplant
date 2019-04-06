@@ -13,10 +13,11 @@ Our Motto: **_"Simplicity is key"_**
 
 Eggplant just works, it has simple to read phrases and a BDD style test can be written in under 30 seconds, we do not try and over complicate things.
 
+Runs the same as `clojure.test` so will work in any IDE and with any driver such as `lein test` displaying the same differences between expected and actual.
 
 ## Features: 
 1. Simplicity: a key feature we do not want to over complicate things.
-2. Four keywords: given, when-we-process, then-we-expect, then-we-do-not-expect form the BDD style of testing. 
+2. Keywords: given, when, then, or expect, where form the BDD style of testing.
 3. Data driven: Data driven testing using data tables with the where clause. 
  
 ## Examples
@@ -24,33 +25,24 @@ Eggplant just works, it has simple to read phrases and a BDD style test can be w
 ``` clojure
 [eggplant.core :refer :all]
 
-(defspec example-specification-true
-  (testing "A full length example specification which is true 4 * 2 = 8"
-    (given 4 test-data
-           (then-we-expect 8 (when-we-process * 2 test-data)))))
+(defspec multiplying-two-numbers
+  (specification
+   {:given "a input of :a and :b"
+    :when  "we #* :c"
+    :then  "we expect :result"
+    :data {:a 3 :b 4 :result 12}}))
 
-(defspec example-specification-false
-  (testing "A full length example specification which is false 4 * 2 = 6 ! False"
-    (given 4 test-data
-           (then-we-do-not-expect 6 (when-we-process * 2 test-data)))))
+(defspec change-a-string-to-uppercase
+  (specification
+   {:given "a input of :a"
+    :when  "we #clojure.string/upper-case"
+    :then  "we expect :result"
+    :data {:a "hello" :result "HELLO"}}))
 
-(defspec example-specification-with-strings
-  (testing "String upper case specification"
-    (given "tom" test-data
-           (then-we-expect "TOM" (when-we-process str/upper-case test-data)))))
-
-(defspec example-specification-multiplication
-  (testing "Test with Thread Macro given"
-    (given 2 test-data
-           (then-we-expect 4 (when-we-process * 2 test-data)))))
-
-(defspec example-table-spec
-  (testing "Example table testing + with assertion of ="
-    (-> (expect (function-under-test +) (assertion =))
-        (where
-         (test-data-row [3 3] 6)
-         (test-data-row [4 4] 8)
-         (test-data-row [2 3] 5)))))
+(defspec finding-the-max-of-two-numbers
+  (specification
+   {:expect "the #max of :a and :b"
+    :where  {:a 2 :b 3 :expected 3}}))
 
 ```
 ## Contribute
@@ -63,18 +55,18 @@ Available: [![Clojars Project](https://img.shields.io/clojars/v/eggplant.svg)](h
 
 #### Leiningen/Boot
 ``` 
-    [eggplant "0.1.1"] 
+    [eggplant "0.2.0"]
 ```
 #### Gradle  
 ```
-    compile "eggplant:eggplant:0.1.1"
+    compile "eggplant:eggplant:0.2.0"
 ```
 #### Maven  
 ```
     <dependency>
       <groupId>eggplant</groupId>
       <artifactId>eggplant</artifactId>
-      <version>0.1.1</version>
+      <version>0.2.0</version>
     </dependency>
 ```
 ## Contributors
