@@ -4,5 +4,6 @@
   :license {:name "Apache License"
             :url  "https://github.com/perkss/eggplant/blob/master/LICENSE"}
   :dependencies [[org.clojure/clojure "1.8.0"]]
-  :plugins [[lein-environ "1.0.1"]]
+  :plugins [[lein-environ "1.0.1"]
+            [lein-cljfmt "0.6.4"]]
  )

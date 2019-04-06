@@ -1,58 +1,66 @@
 (ns eggplant.core
   (:require [clojure.test :refer :all]))
 
-(defn- multi-args? [data]
-  (and
-    (vector? data)
-    (= (get (frequencies data) 'as) (/ (count data) 3))))
+(defn- get-keyword-from-str
+  "Extracts words beginning with : to represent keywords"
+  [str]
+  (map keyword (map #(clojure.string/replace % #":" "")
+                    (re-seq #":\w+" str))))
 
-(defmacro given
-  ([data & args]
-   (if (multi-args? data)
-     `(let [~@(mapcat #(list (nth % 2) (first %)) (partition 3 data))] ~@args)
-     `(as-> ~@(cons data (rest args))))))
+(defn get-fn-name-from-str
+  [input]
+  (let [[ns fn-name] (clojure.string/split
+                      (clojure.string/trim
+                       (first (re-seq #"#.*?\s"
+                                      (str input " ")))) #"/")]
+    (if (nil? fn-name)
+      ["clojure.core" (clojure.string/replace
+                       ns
+                       #"#" "")]
+      [(clojure.string/replace
+        ns
+        #"#" "") fn-name])))
 
-(defmacro function-under-test
-  [function-under-test]
-  function-under-test)
+(defn- get-fn-from-str
+  "Extracts words beginning with # to represent fn"
+  [str]
+  (let [[ns fn-name] (get-fn-name-from-str str)]
+    (ns-resolve (symbol ns)
+                (symbol fn-name))))
 
-(defmacro assertion
-  [assertion] assertion)
+(defn- select-values [map ks]
+  (remove nil? (reduce #(conj %1 (map %2)) [] ks)))
 
-(defn when-we-process [test-fn & data]
-  (apply test-fn data))
+(defn- apply-values [map f ks]
+  (apply f (select-values map ks)))
 
-;; TODO need to make this equal work for all types
-(defn then-we-expect [expected actual]
-  (is (true?
-       (= expected actual))))
+(defn- given-when-then
+  [data]
+  (testing (str (:given data) (:when data) (:then data))
+    (let [test-data (:data data)
+          keywords (get-keyword-from-str (:given data))
+          fn-under-test (get-fn-from-str (:when data))
+          expected ((first (get-keyword-from-str (:then data))) test-data)
+          result (apply-values test-data fn-under-test keywords)]
+      (is (= expected
+             result)))))
 
-(defn then-we-do-not-expect [expected actual]
-  (is (false?
-       (= expected actual))))
+(defn- expect-where
+  [data]
+  (let [expect-phrase (:expect data)
+        keywords (get-keyword-from-str expect-phrase)
+        expected (-> data :where :expected)
+        fn-under-test (get-fn-from-str expect-phrase)
+        result (apply-values (:where data) fn-under-test keywords)]
+    (testing expect-phrase (is (= expected result)))))
+
+(defn specification
+  [data]
+  (if (not (nil? (:where data)))
+    (expect-where data)
+    (given-when-then data)))
 
 (defmacro defspec
-  [& args]
-  `(deftest ~@args))
-
-(defrecord Row [args expected])
-
-(defn test-data-row [args expected] (->Row args expected))
-
-(defn- execute-row [func data assertion]
-  (assertion (apply func (:args data)) (:expected data)))
-
-(defrecord Expect [test-func assertion])
-
-(defn expect [test-func assertion]
-  (->Expect test-func assertion))
-
-(defn- check-row [expect test-row]
-  (is (true?
-       (execute-row (:test-func expect) test-row (:assertion expect)))))
-
-(defn where [expected & args]
-  (every? true?
-          (for [test-row args]
-            (check-row expected test-row))))
+  [& specs]
+  `(deftest ~@specs))
 
