@@ -26,7 +26,7 @@ Runs the same as `clojure.test` so will work in any IDE and with any driver such
 (defspec multiplying-two-numbers
   (specification
    {:given "a input of :a and :b"
-    :when  "we #* :c"
+    :when  "we #*"
     :then  "we expect :result"
     :data {:a 3 :b 4 :result 12}}))
 

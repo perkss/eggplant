@@ -5,7 +5,7 @@
 (defspec multiplying-two-numbers
   (specification
    {:given "a input of :a and :b"
-    :when  "we #* :c"
+    :when  "we #*"
     :then  "we can expect a :result"
     :data {:a 3 :b 4 :result 12}}))
 
